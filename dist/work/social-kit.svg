@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#111"/>
+  <rect x="40" y="40" width="720" height="440" fill="#ffd21f"/>
+  <text x="80" y="250" font-family="Arial, sans-serif" font-size="110" font-weight="800" fill="#111">NEW</text>
+  <text x="80" y="370" font-family="Arial, sans-serif" font-size="110" font-weight="800" fill="#111">DROP</text>
+  <circle cx="620" cy="260" r="110" fill="#111"/>
+  <text x="620" y="276" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="800" fill="#ffd21f">-30%</text>
+  <rect x="40" y="520" width="350" height="440" fill="#fff"/>
+  <rect x="410" y="520" width="350" height="210" fill="#2a2a2a"/>
+  <rect x="410" y="750" width="350" height="210" fill="#ffd21f"/>
+  <text x="70" y="900" font-family="Arial, sans-serif" font-size="40" font-weight="800" fill="#111">STORY</text>
+  <text x="440" y="640" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#fff">REEL</text>
+  <text x="440" y="870" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#111">POST</text>
+</svg>

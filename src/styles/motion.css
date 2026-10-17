@@ -1,0 +1,24 @@
+/* ============================================================
+   MOTION: touch ripple, desktop-only hover, and reduced-motion.
+   ============================================================ */
+
+/* the ripple circle that spreads from your finger (created in hooks/useRipple.js) */
+.ripple { position: absolute; border-radius: 50%; background: currentColor; opacity: .18; transform: scale(0); pointer-events: none; animation: ripple .55s var(--ease) forwards; }
+@keyframes ripple { to { transform: scale(1); opacity: 0; } }
+
+/* Hover only exists with a mouse. Phones never trigger this block, so nothing "sticks" after a tap. */
+@media (hover: hover) {
+  .btn.primary:hover { filter: brightness(1.07); }
+  .btn.icon:hover, .btn.ghost:hover, .row:hover, .social:hover, .pager button:hover:not(:disabled) { border-color: var(--accent); }
+  .nav-item:hover:not(.on) { background: var(--accent-soft); }
+  .icon-btn:hover { background: rgba(255, 255, 255, .2); }
+  /* social tiles: the icon circle lifts, grows and glows */
+  .social:hover { background: rgba(var(--ic), .1); }
+  .social:hover .social-chip { transform: translateY(-4px) scale(1.12); background: rgba(var(--ic), .3); box-shadow: inset 0 0 0 1px rgba(var(--ic), .6), 0 10px 20px -8px rgba(var(--ic), .7); }
+}
+
+/* People who turn off animations in their phone settings get none */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after { animation: none !important; transition: none !important; }
+  .ripple { display: none; }
+}

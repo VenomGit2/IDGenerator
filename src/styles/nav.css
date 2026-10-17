@@ -1,0 +1,39 @@
+/* ============================================================
+   NAV: the section button grid. The active button gets a yellow "pill"
+   (the pill itself slides between buttons, driven by framer-motion in SectionNav.jsx).
+   ============================================================ */
+
+/* 6 columns: every button spans 2, so 3 fit per row */
+.nav { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; padding: 7px; }
+
+.nav-item {
+  position: relative; overflow: hidden; grid-column: span 2;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  height: 50px; padding: 0 2px; border-radius: 22px;
+  font-size: 12.5px; font-weight: 600; color: var(--text); white-space: nowrap;
+  transition: transform .18s var(--ease), background .18s, color .18s;
+}
+/* if the last button is alone on its row (3 + 3 + 1), centre it */
+.nav-item:last-child:nth-child(3n + 1) { grid-column: 3 / span 2; }
+.nav-item:active { transform: scale(.94); background: var(--accent-soft); }
+
+/* keep label + icon above the pill */
+.nav-item > svg, .nav-item > span:not(.pill):not(.ripple) { position: relative; z-index: 1; }
+.nav-item svg { width: 16px; flex: none; }
+
+/* inactive icons use the button's own colour (see hue-... classes) */
+.nav-item:not(.on) svg { color: rgb(var(--ic)); filter: drop-shadow(0 0 6px rgba(var(--ic), .45)); }
+[data-theme='light'] .nav-item:not(.on) svg { filter: none; }
+
+/* active */
+.nav-item.on { color: var(--on-accent); font-weight: 700; }
+.nav-item.on:active { background: none; }
+.pill {
+  position: absolute; inset: 0; z-index: 0; border-radius: 22px;
+  background: linear-gradient(180deg, var(--btn-a), var(--btn-b));
+  border: 1px solid rgba(255, 255, 255, .32);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6), inset 0 -6px 14px rgba(120, 80, 0, .2), 0 10px 20px -12px rgba(245, 184, 0, .6);
+}
+
+/* very narrow phones: hide the icons so labels fit */
+@media (max-width: 350px) { .nav-item svg { display: none; } }

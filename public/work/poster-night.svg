@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1100" viewBox="0 0 800 1100">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1a1a"/><stop offset="1" stop-color="#000"/></linearGradient></defs>
+  <rect width="800" height="1100" fill="url(#g)"/>
+  <circle cx="400" cy="430" r="260" fill="#ffd21f"/>
+  <circle cx="470" cy="380" r="230" fill="#0a0a0a"/>
+  <rect x="60" y="860" width="680" height="6" fill="#ffd21f"/>
+  <text x="60" y="960" font-family="Arial, sans-serif" font-size="96" font-weight="800" fill="#fff">NIGHT</text>
+  <text x="60" y="1040" font-family="Arial, sans-serif" font-size="96" font-weight="800" fill="#ffd21f">SESSIONS</text>
+  <text x="60" y="110" font-family="Arial, sans-serif" font-size="24" letter-spacing="6" fill="#fff">LIVE MUSIC / 21.11</text>
+</svg>

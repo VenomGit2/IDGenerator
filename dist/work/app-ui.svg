@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1100" viewBox="0 0 800 1100">
+  <rect width="800" height="1100" fill="#ffd21f"/>
+  <rect x="210" y="90" width="380" height="780" rx="56" fill="#111"/>
+  <rect x="226" y="106" width="348" height="748" rx="44" fill="#1f1f1f"/>
+  <rect x="340" y="124" width="120" height="26" rx="13" fill="#000"/>
+  <rect x="256" y="200" width="288" height="150" rx="24" fill="#ffd21f"/>
+  <text x="280" y="270" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111">Balance</text>
+  <text x="280" y="320" font-family="Arial, sans-serif" font-size="44" font-weight="800" fill="#111">$12,480</text>
+  <rect x="256" y="380" width="136" height="110" rx="20" fill="#2d2d2d"/>
+  <rect x="408" y="380" width="136" height="110" rx="20" fill="#2d2d2d"/>
+  <rect x="256" y="520" width="288" height="64" rx="18" fill="#2d2d2d"/>
+  <rect x="256" y="600" width="288" height="64" rx="18" fill="#2d2d2d"/>
+  <rect x="256" y="680" width="288" height="64" rx="18" fill="#2d2d2d"/>
+  <rect x="256" y="770" width="288" height="56" rx="28" fill="#ffd21f"/>
+  <text x="400" y="1000" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="800" fill="#111">MOBILE BANKING UI</text>
+</svg>

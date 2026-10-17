@@ -1,0 +1,115 @@
+/* ============================================================
+   PORTFOLIO: filter buttons, the image grid, and the full-screen viewer.
+   Built for phones: 44px touch targets, no layout jumping, smooth scrolling.
+   ============================================================ */
+
+/* ---- filter buttons: one row that scrolls sideways, buttons snap into place ---- */
+.filters {
+  display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 12px; margin: 0 -2px;
+  scroll-snap-type: x proximity; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; touch-action: pan-x;
+}
+.filters::-webkit-scrollbar { display: none; }
+.filter {
+  flex: none; height: 44px; padding: 0 18px; border-radius: 99px; scroll-snap-align: center;
+  font-size: 13px; font-weight: 700; letter-spacing: .03em; color: var(--text); white-space: nowrap;
+  background: var(--chip-fill); border: 1px solid var(--chip-border); box-shadow: var(--glass-inset);
+  transition: transform .18s var(--ease), background .18s, color .18s, border-color .18s;
+}
+.filter:active { transform: scale(.94); }
+.filter.on { color: var(--on-accent); border-color: rgba(255, 255, 255, .3); background: linear-gradient(180deg, var(--btn-a), var(--btn-b)); }
+
+/* ---- the grid: 2 columns, each image keeps its own shape (tall posters and square logos both fit) ---- */
+.gallery { columns: 2; column-gap: 8px; }
+.tile {
+  position: relative; display: block; width: 100%; padding: 0; margin: 0 0 8px; overflow: hidden;
+  break-inside: avoid; border-radius: 16px; border: 1px solid var(--chip-border);
+  /* soft shimmering placeholder shown until the image has loaded */
+  background: linear-gradient(110deg, var(--chip-fill) 30%, rgba(255, 255, 255, .12) 50%, var(--chip-fill) 70%) 0 0 / 220% 100%;
+  animation: shimmer 1.4s linear infinite;
+  transition: transform .18s var(--ease);
+  -webkit-touch-callout: none; /* no "save image" menu popping up on long press */
+}
+.tile.loaded { animation: none; background: var(--chip-fill); }
+@keyframes shimmer { to { background-position: -120% 0; } }
+
+.tile img { display: block; width: 100%; height: auto; opacity: 0; transform: scale(1.04); transition: opacity .45s ease, transform .6s var(--ease); }
+.tile.sized img { height: 100%; object-fit: cover; }   /* the tile already has the right shape, so just fill it */
+.tile.loaded img { opacity: 1; transform: scale(1); }
+.tile:active { transform: scale(.97); }
+
+/* title shown over the bottom of each image */
+.tile-caption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 30px 10px 10px; text-align: left;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .78)); color: #fff; pointer-events: none;
+}
+.tile-caption small { display: block; font-size: 9.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #ffd21f; }
+.tile-caption b { display: block; margin-top: 2px; font-size: 12.5px; font-weight: 600; line-height: 1.25; }
+
+/* ---- full-screen viewer ---- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 70; height: 100dvh; display: grid; grid-template-rows: auto 1fr auto; gap: 8px; color: #fff;
+  padding: calc(10px + var(--safe-top)) 12px calc(14px + var(--safe-bottom));
+  overscroll-behavior: contain; touch-action: none; -webkit-user-select: none; user-select: none;
+}
+.lightbox-top { display: flex; align-items: center; justify-content: space-between; }
+.lightbox-count { font-size: 13px; font-weight: 700; letter-spacing: .08em; color: rgba(255, 255, 255, .85); }
+.lightbox-btn {
+  width: 48px; height: 48px; border-radius: 16px; display: grid; place-items: center; color: #fff;
+  background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .22); transition: transform .18s var(--ease), background .18s;
+}
+.lightbox-btn:active { transform: scale(.9); background: rgba(255, 255, 255, .26); }
+
+.lightbox-stage { position: relative; min-height: 0; display: grid; place-items: center; overflow: hidden; }
+.lightbox-slide { width: 100%; height: 100%; display: grid; place-items: center; min-height: 0; }
+.lightbox-slide img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; -webkit-user-drag: none; cursor: zoom-in; touch-action: none; }
+.lightbox-slide img.is-zoomed { cursor: grab; }
+.lightbox-prev, .lightbox-next { position: absolute; top: 50%; translate: 0 -50%; z-index: 2; opacity: .85; }
+.lightbox-prev { left: 0; }
+.lightbox-next { right: 0; }
+
+.lightbox-caption { text-align: center; padding: 2px 8px; max-height: 26dvh; overflow: hidden; }
+.lightbox-caption small { display: block; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #ffd21f; }
+.lightbox-caption b { display: block; margin-top: 4px; font-size: 17px; }
+.lightbox-caption p { margin-top: 6px; font-size: 13px; line-height: 1.5; color: rgba(255, 255, 255, .78); }
+.lightbox-hint { display: block; margin-top: 10px; font-size: 10.5px; letter-spacing: .04em; color: rgba(255, 255, 255, .45); }
+
+@media (prefers-reduced-motion: reduce) {
+  .tile { animation: none; }
+  .tile img { opacity: 1; transform: none; }
+}
+
+/* ---- videos ---- */
+/* round play button in the middle of a video tile or featured card */
+.play-badge {
+  position: absolute; left: 50%; top: 46%; translate: -50% -50%; width: 52px; height: 52px; border-radius: 50%;
+  display: grid; place-items: center; padding-left: 3px; pointer-events: none;
+  color: var(--on-accent); background: linear-gradient(180deg, var(--btn-a), var(--btn-b));
+  border: 1px solid rgba(255, 255, 255, .45); box-shadow: 0 8px 22px -6px rgba(0, 0, 0, .55);
+  transition: transform .25s var(--ease);
+}
+.tile:active .play-badge, .featured-card:active .play-badge { transform: scale(.9); }
+/* a video with no cover picture still gets a dark tile */
+.tile.is-video { background-color: #111; }
+
+/* the player inside the full-screen viewer */
+.lightbox-videobox { width: 100%; max-height: 100%; border-radius: 12px; overflow: hidden; background: #000; }
+.lightbox-videobox iframe, .lightbox-videobox video { display: block; width: 100%; height: 100%; border: 0; background: #000; }
+
+/* ---- Images | Videos switch ---- */
+.segment {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; margin-bottom: 12px; border-radius: 18px;
+  background: var(--chip-fill); border: 1px solid var(--chip-border); box-shadow: var(--glass-inset);
+}
+.segment-btn {
+  display: flex; align-items: center; justify-content: center; gap: 7px; height: 44px; border-radius: 14px;
+  font-size: 13px; font-weight: 700; color: var(--text); transition: transform .18s var(--ease), background .18s, color .18s;
+}
+.segment-btn:active { transform: scale(.96); }
+.segment-btn.on { color: var(--on-accent); background: linear-gradient(180deg, var(--btn-a), var(--btn-b)); box-shadow: 0 6px 14px -8px rgba(245, 184, 0, .7); }
+.segment-count { min-width: 20px; padding: 1px 6px; border-radius: 99px; font-size: 11px; background: rgba(0, 0, 0, .12); text-align: center; }
+.segment-btn.on .segment-count { background: rgba(0, 0, 0, .16); }
+
+/* ---- "See all on Drive" button under the grid ---- */
+.drive-link { margin-top: 6px; gap: 8px; font-weight: 700; }
+.drive-link svg:last-child { opacity: .7; }

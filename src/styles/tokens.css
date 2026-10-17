@@ -1,0 +1,107 @@
+/* ============================================================
+   TOKENS: every colour, shadow and size used by the app.
+   Palette: BLACK + YELLOW.
+   Change a value here and it changes everywhere.
+   Dark theme = :root.   Light theme = [data-theme='light'].
+   ============================================================ */
+
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  color-scheme: dark;
+
+  /* page */
+  --page-bg: #070707;
+  --text: #ffffff;
+  --muted: rgba(245, 245, 238, .8);        /* secondary text */
+  --border: rgba(255, 255, 255, .12);      /* thin divider lines */
+
+  /* brand yellow: used by buttons, active pill, links, icons */
+  --accent: #ffd21f;
+  --accent-soft: rgba(255, 210, 31, .14);
+  --btn-a: #ffe066;                        /* button gradient: top */
+  --btn-b: #f5b800;                        /* button gradient: bottom */
+  --on-accent: #141100;                    /* text colour that sits ON a yellow button */
+  --gold: #ffd21f;                         /* stars, dots, small highlights */
+
+  /* accent palette as "r, g, b" so we can write rgba(var(--c-yellow), .2) */
+  --c-yellow: 255, 210, 31;
+  --c-amber: 245, 158, 11;
+  --c-gold: 212, 160, 23;
+  --c-cream: 255, 243, 200;
+  --c-orange: 251, 146, 60;
+  --c-lemon: 255, 235, 100;
+  --c-white: 235, 235, 235;
+
+  /* glass: panes (big cards) */
+  --glass-fill: linear-gradient(145deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .015) 60%), rgba(12, 12, 12, .62);
+  --glass-blur: blur(12px) saturate(130%);
+  --glass-border: rgba(255, 255, 255, .14);
+  --glass-edge: linear-gradient(160deg, rgba(255, 214, 64, .6), rgba(255, 255, 255, .05) 32%, rgba(255, 255, 255, .02) 62%, rgba(255, 214, 64, .32));
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, .22), inset 0 -1px 0 rgba(255, 255, 255, .06), inset 0 0 28px rgba(255, 255, 255, .03);
+  --glass-drop: 0 22px 44px -20px rgba(0, 0, 0, .8), 0 1px 3px rgba(0, 0, 0, .3);
+  /* glass: chips (small items sitting on a pane) */
+  --chip-fill: linear-gradient(rgba(255, 255, 255, .05), rgba(255, 255, 255, .05)), rgba(0, 0, 0, .35);
+  --chip-border: rgba(255, 255, 255, .12);
+
+  /* background glows */
+  --glow-1: #ffc800;
+  --glow-2: #8a6a00;
+  --glow-3: #ffe066;
+  --glow-4: rgba(255, 200, 0, .4);
+  --glow-opacity: .26;
+
+  /* motion + phone safe areas (notch / home bar) */
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --page-bg: #f7f3e3;
+  --text: #121212;
+  --muted: rgba(18, 18, 18, .74);
+  --border: rgba(18, 18, 18, .12);
+
+  --accent: #9a6b00;                       /* darker yellow so it stays readable on white */
+  --accent-soft: rgba(245, 184, 0, .2);
+  --btn-a: #ffd84d;
+  --btn-b: #f2b705;
+  --on-accent: #141100;
+  --gold: #d99100;
+
+  --c-yellow: 190, 130, 0;
+  --c-amber: 180, 83, 9;
+  --c-gold: 146, 100, 10;
+  --c-cream: 120, 113, 108;
+  --c-orange: 194, 65, 12;
+  --c-lemon: 161, 98, 7;
+  --c-white: 82, 82, 91;
+
+  --glass-fill: linear-gradient(145deg, rgba(255, 255, 255, .86), rgba(255, 255, 255, .66));
+  --glass-blur: blur(12px) saturate(140%);
+  --glass-border: rgba(255, 255, 255, .9);
+  --glass-edge: linear-gradient(160deg, #fff, rgba(255, 214, 64, .35) 35%, rgba(255, 255, 255, .15) 62%, rgba(255, 255, 255, .9));
+  --glass-inset: inset 0 1px 0 #fff, inset 0 -1px 0 rgba(255, 255, 255, .6), inset 0 0 28px rgba(255, 255, 255, .4);
+  --glass-drop: 0 18px 40px -18px rgba(120, 90, 0, .3), 0 2px 6px rgba(18, 18, 18, .06);
+  --chip-fill: rgba(255, 255, 255, .72);
+  --chip-border: rgba(18, 18, 18, .08);
+
+  --glow-1: #ffd84d;
+  --glow-2: #ffe9a0;
+  --glow-3: #f6c445;
+  --glow-4: rgba(255, 200, 0, .5);
+  --glow-opacity: .65;
+}
+
+/* ---- "hue" helpers ----
+   Put class="hue-yellow" (etc.) on an element and it gets a colour named --ic.
+   Children can then use rgb(var(--ic)) for icons, borders and tints. */
+.hue-yellow { --ic: var(--c-yellow); }
+.hue-amber  { --ic: var(--c-amber); }
+.hue-gold   { --ic: var(--c-gold); }
+.hue-cream  { --ic: var(--c-cream); }
+.hue-orange { --ic: var(--c-orange); }
+.hue-lemon  { --ic: var(--c-lemon); }
+.hue-white  { --ic: var(--c-white); }

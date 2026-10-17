@@ -1,0 +1,38 @@
+/* ============================================================
+   GLASS: the see-through look.
+   Two levels:
+     1) PANES: big surfaces (.card, .mini, .sheet, .toast): blur + tint + glowing edge
+     2) CHIPS: small items sitting on a pane (rows, stats, small buttons): lighter fill
+   ============================================================ */
+
+/* ---- 1) panes ---- */
+.card, .mini, .sheet, .toast {
+  position: relative;
+  background: var(--glass-fill);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inset), var(--glass-drop);
+}
+.card { border-radius: 30px; }
+
+/* the bright gradient edge: a 1px ring painted with a mask */
+.card::before, .sheet::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; z-index: 2; pointer-events: none;
+  background: var(--glass-edge);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+}
+
+/* ---- 2) chips ---- */
+.stats, .row, .card-item, .btn.icon, .btn.ghost, .social, .pager button, .close {
+  background: var(--chip-fill);
+  border: 1px solid var(--chip-border);
+  box-shadow: var(--glass-inset);
+}
+
+/* browsers without blur support get a solid pane instead */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .card, .mini, .sheet { background: #151a33; }
+  [data-theme='light'] .card, [data-theme='light'] .mini, [data-theme='light'] .sheet { background: #fff; }
+}
