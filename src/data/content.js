@@ -30,6 +30,7 @@
 export const portfolioFolders = {
   images: 'https://drive.google.com/drive/folders/1HaJPwbXHqTVediyk-UbMtcGQuCsXyXpS', // ⚠️ SAMPLE link. Replace it with your own images folder link
   videos:'https://drive.google.com/drive/folders/1-o5ylidt6xDeOmSd5pYjiEJYmubj7jDT', // ⚠️ SAMPLE link. Replace it with your own videos folder link
+  brochures: 'https://drive.google.com/drive/folders/1-00EcnlfKizIor70Lyst9-uzbtz4k1Ls', // ⚠️ SAMPLE link. Replace it with your own brochures folder link
 }
 
 
@@ -84,7 +85,10 @@ export const portfolioVideos = [
 // ---------------------------------------------------------------
 export const portfolioBrochures = [
   // SAMPLE brochure (a small test PDF). Delete this line and add your own.
-  { title: 'Sample Brochure', category: 'Brochures', pdf: '/brochures/sample-brochure.pdf', description: 'A sample PDF. Replace it with your own brochure.' },
+      { title: 'Matrix Hospitals', category: 'Brochures', pdf: 'https://drive.google.com/file/d/10MpjjOKT6EEq7yw2wJlGO7gJfFSPbO0e/view?usp=sharing' },
+  { title: 'WOW India', category: 'Brochures', pdf: 'https://drive.google.com/file/d/18mOZB0SYmifUEWGGaUF1_tNdZaLRqFp0/view?usp=sharing' },
+    { title: 'Shivai Constructions', category: 'Brochures', pdf: 'https://drive.google.com/file/d/15q4WzqR5qaoIJfxkckzJ0RKW46aJoHLS/view?usp=sharing' },
+        { title: 'Jaison Pipes', category: 'Brochures', pdf: 'https://drive.google.com/file/d/16We3vqM3wS9CQsRG5I4uUCvrZQnWoyrN/view?usp=sharing' },
   // Example of a Google Drive brochure (remove the two slashes at the start of the line, then paste your link):
   // { title: 'Company Brochure', category: 'Corporate', pdf: 'PASTE_YOUR_DRIVE_LINK_HERE' },
 ]

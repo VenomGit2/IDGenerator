@@ -18,7 +18,7 @@ const SECTIONS = [
   { id: 'images', label: 'Images', icon: Image, works: portfolioImages, folderUrl: portfolioFolders.images, folderText: 'See all images on Drive' },
   { id: 'videos', label: 'Videos', icon: Clapperboard, works: portfolioVideos, folderUrl: portfolioFolders.videos, folderText: 'See all videos on Drive' },
   // brochures are PDFs: shown as cover cards, and opened in the full-screen reader (BrochureReader)
-  { id: 'brochures', label: 'Brochures', icon: BookOpen, works: portfolioBrochures, kind: 'brochures' },
+  { id: 'brochures', label: 'Brochures', icon: BookOpen, works: portfolioBrochures, kind: 'brochures', folderUrl: portfolioFolders.brochures, folderText: 'See all brochures on Drive' },
 ].filter(section => section.works.length > 0)
 
 // Your design work. An "Images | Videos | Brochures" switch, filter buttons for the open section,
