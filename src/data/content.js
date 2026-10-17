@@ -28,8 +28,8 @@
 // Leave a link as '' (empty) to hide that button.
 // ---------------------------------------------------------------
 export const portfolioFolders = {
-  images: 'https://drive.google.com/drive/folders/REPLACE_WITH_YOUR_IMAGES_FOLDER_ID?usp=sharing', // ⚠️ SAMPLE link. Replace it with your own images folder link
-  videos: 'https://drive.google.com/drive/folders/REPLACE_WITH_YOUR_VIDEOS_FOLDER_ID?usp=sharing', // ⚠️ SAMPLE link. Replace it with your own videos folder link
+  images: 'https://drive.google.com/drive/folders/1HaJPwbXHqTVediyk-UbMtcGQuCsXyXpS', // ⚠️ SAMPLE link. Replace it with your own images folder link
+  videos:'https://drive.google.com/drive/folders/1-o5ylidt6xDeOmSd5pYjiEJYmubj7jDT', // ⚠️ SAMPLE link. Replace it with your own videos folder link
 }
 
 
