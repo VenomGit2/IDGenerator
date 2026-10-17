@@ -39,12 +39,12 @@ export const portfolioFolders = {
 //    (A file stored in the project works too: image: '/work/my-photo.jpg')
 // ---------------------------------------------------------------
 export const portfolioImages = [
-  { title: 'Apex Brand Identity', category: 'Branding', image: '/work/brand-identity.svg', width: 800, height: 800, featured: true, description: 'Logo mark and identity system for a design studio.' },
-  { title: 'Night Sessions Poster', category: 'Poster', image: '/work/poster-night.svg', width: 800, height: 1100, featured: true, description: 'Event poster for a live music series.' },
-  { title: 'Bold Coffee Packaging', category: 'Packaging', image: '/work/packaging.svg', width: 800, height: 800, description: 'Box design for a specialty coffee brand.' },
-  { title: 'New Drop Social Kit', category: 'Social', image: '/work/social-kit.svg', width: 800, height: 1000, featured: true, description: 'Story, reel and post templates for a product launch.' },
-  { title: 'The Design Issue', category: 'Editorial', image: '/work/editorial.svg', width: 800, height: 1000, description: 'Magazine cover and layout.' },
-  { title: 'Mobile Banking UI', category: 'UI Design', image: '/work/app-ui.svg', width: 800, height: 1100, featured: true, description: 'App screens for a mobile banking product.' },
+  { title: 'Hotel Seven Hills', category: 'Social Media Designs', image: 'https://drive.google.com/file/d/1TF7XYbPJNc67-dxj76FqrVcKjzPwvNjm/view?usp=sharing', width: 800, height: 800, featured: false},
+  { title: 'Ankura Hospital', category: 'Hospital Posters', image: 'https://drive.google.com/file/d/1jB0V9QITY8nQh8bM2oqJGHUu1iDEFA9U/view?usp=sharing', width: 800, height: 1100, featured: false,featured: true },
+  { title: 'Hotel Jaidhan', category: 'Social Media Designs', image: 'https://drive.google.com/file/d/199Z7t47dcDQtNHt4TA78XUCiUI-GfKey/view?usp=sharing', width: 800, height: 800},
+  { title: 'Endo Rheuma Care', category: 'Social Media Designs', image: 'https://drive.google.com/file/d/1LDjB2XlqzZCDiDW4uRKrASU3GN3Q8ApU/view?usp=sharing', width: 800, height: 1000, featured: true, },
+  { title: 'Jeevayu', category: 'Food & Beverage', image: 'https://drive.google.com/file/d/1-INiIWNpp42daQEZxXzN0OChXxGYhGpp/view?usp=sharing', width: 800, height: 1000, },
+  { title: 'Organvi', category: 'Food & Beverage', image: 'https://drive.google.com/file/d/1TkQgzWr0NswPKHGFVJ11mUF2aLjdCkim/view?usp=sharing', width: 800, height: 1100, featured: true, description: 'App screens for a mobile banking product.' },
   // Example of a Google Drive photo (remove the two slashes at the start of the line, then paste your link):
   // { title: 'Summer Campaign', category: 'Poster', image: 'PASTE_YOUR_DRIVE_LINK_HERE', width: 1200, height: 1500 },
 ]
@@ -59,7 +59,12 @@ export const portfolioImages = [
 // ---------------------------------------------------------------
 export const portfolioVideos = [
   // SAMPLE VIDEO: a public YouTube clip, only here to show how videos look. Delete this line and add your own.
-  { title: 'Sample Motion Reel', category: 'Motion', video: 'https://www.youtube.com/watch?v=jNQXAC9IVRw', description: 'Sample video. Replace this with your own reel.' },
+  { title: 'KrishnaJanmashtmi', category: 'Motion', video: 'https://drive.google.com/file/d/1ZFLjPx2MfixglJjUq-3SbjQrw831NmYS/view?usp=drive_link' ,featured: true},
+    { title: 'Navratri', category: 'Motion', video: 'https://drive.google.com/file/d/13jRexwapdduD7Pes-algNh_sTkR7tD6E/view?usp=drive_link' },
+    { title: 'Dr.ParthSarthi', category: 'Motion', video: 'https://drive.google.com/file/d/1XzAjnHb7m47d_iIcsGWOtz0OK44OJidG/view?usp=drive_link' },
+    { title: 'LaPinoz', category: 'Motion', video: 'https://drive.google.com/file/d/18-d3uQdSTg3caX47XP9QlKj8sJJ0PFaU/view?usp=sharing' ,featured: true},
+    { title: 'CarzSpa', category: 'Motion', video: 'https://drive.google.com/file/d/1e_6vqyWgh4tIqYf-izL_o2eJQDMdJLrl/view?usp=sharing' },
+
   // Example of a Google Drive video (remove the two slashes at the start of the line, then paste your link):
   // { title: 'Logo Animation', category: 'Motion', video: 'PASTE_YOUR_DRIVE_LINK_HERE', description: 'Optional short note' },
 ]
