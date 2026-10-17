@@ -106,3 +106,15 @@ export function documentLinks(url) {
   }
   return { viewUrl: url, downloadUrl: url, embedUrl: null }
 }
+
+/**
+ * The cover picture for a brochure PDF, or null when there is none to show right away.
+ *   - your own  thumb  picture, if you gave one
+ *   - for a Google Drive PDF, Google's picture of its first page
+ * For a PDF in the project (no thumb) the first page is drawn by the PDF reader instead: see PdfCover.jsx.
+ */
+export function pdfCoverSrc(brochure, width = 600) {
+  if (brochure.thumb) return imageSrc(brochure.thumb, width)
+  const driveId = getDriveFileId(brochure.pdf)
+  return driveId ? driveThumbnail(driveId, width) : null
+}

@@ -1,8 +1,8 @@
 // ✏️ EDIT ME: the content of each section tab (Portfolio, Services, Resume).
 
 // =====================================================================
-// PORTFOLIO. Two separate lists:  1) IMAGES  and  2) VIDEOS
-// In the app, the Portfolio tab has an "Images | Videos" switch, one for each list.
+// PORTFOLIO. Three separate lists:  1) IMAGES,  2) VIDEOS  and  3) BROCHURES (PDF)
+// In the app, the Portfolio tab has an "Images | Videos | Brochures" switch, one for each list.
 //
 // GOOGLE DRIVE LINKS: open the file in Drive > Share > "Anyone with the link" > Viewer > Copy link.
 // Paste the link exactly as it is. If a file is not shared as "Anyone with the link", visitors will not see it.
@@ -67,6 +67,26 @@ export const portfolioVideos = [
 
   // Example of a Google Drive video (remove the two slashes at the start of the line, then paste your link):
   // { title: 'Logo Animation', category: 'Motion', video: 'PASTE_YOUR_DRIVE_LINK_HERE', description: 'Optional short note' },
+]
+
+
+// ---------------------------------------------------------------
+// 3) BROCHURES: your PDF brochures. They appear under  Portfolio > Brochures.
+//    Each one shows its first page as the cover. Tapping it opens the PDF full screen, where people can scroll
+//    the pages, tap a page to zoom in, and download it.
+//
+//    One line per brochure. Use  pdf:  with either
+//      - a file in the project:  copy it to  public/brochures/  and write  pdf: '/brochures/my-brochure.pdf'
+//      - a Google Drive link:    Drive > Share > "Anyone with the link" > Viewer > Copy link, then  pdf: 'PASTE_LINK'
+//    Optional:  thumb: a cover picture instead of the first page (a Drive link or a file in public/)
+//               description: a short line shown under the title in the reader
+//    Pieces with the same category get one filter button, like images and videos.
+// ---------------------------------------------------------------
+export const portfolioBrochures = [
+  // SAMPLE brochure (a small test PDF). Delete this line and add your own.
+  { title: 'Sample Brochure', category: 'Brochures', pdf: '/brochures/sample-brochure.pdf', description: 'A sample PDF. Replace it with your own brochure.' },
+  // Example of a Google Drive brochure (remove the two slashes at the start of the line, then paste your link):
+  // { title: 'Company Brochure', category: 'Corporate', pdf: 'PASTE_YOUR_DRIVE_LINK_HERE' },
 ]
 
 

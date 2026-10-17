@@ -13,14 +13,14 @@ export const profile = {
   cover:'/cover.png',
   phone: '+918482863150',
   email: 'creativeflow3563@gmail.com',
-  website: 'apexdesign.io',
+  website: 'https://idgenerator.insanedk46.workers.dev',
   locations: ['Hyderabad, India'],
-  url: 'https://identiq.in/u/demo', // used for the QR code and sharing
+  url: 'https://idgenerator.insanedk46.workers.dev', // used for the QR code and sharing
 
   // ✏️ The "Open for work" banner at the bottom of the page. The button opens your WhatsApp chat.
   availability: {
     label: 'Open for work',
-    note: 'Taking new design projects from November',
+    note: 'Want to create something ?',
   },
 
   // ✏️ WhatsApp Business chat (the WhatsApp tab)
@@ -40,14 +40,16 @@ export const profile = {
     ],
   },
   socials: [
-    { label: 'LinkedIn', icon: 'linkedin', href: '#' },   // icon: linkedin | github | instagram | whatsapp
+    // { label: 'LinkedIn', icon: 'linkedin', href: '#' },   // icon: linkedin | github | instagram | behance | pinterest | whatsapp
     // replace each '#' with your real profile link, e.g. https://instagram.com/yourname
-    { label: 'GitHub', icon: 'github', href: '#' },
-    { label: 'Instagram', icon: 'instagram', href: '#' },
+    // { label: 'GitHub', icon: 'github', href: '#' },
+    { label: 'Instagram', icon: 'instagram', href: 'https://instagram.com/creative_flow_official' },
+    { label: 'Behance', icon: 'behance', href: 'https://behance.net/yashdahiwal' },
+    { label: 'Pinterest', icon: 'pinterest', href: 'https://in.pinterest.com/Creative_Flow_07' },
   ],
   stats: [
     { value: '3.5+', label: 'Years' },
-    { value: '20', label: 'Projects' },
+    { value: '100+', label: 'Projects' },
     { value: '4.9', label: 'Rating' },
   ],
 }

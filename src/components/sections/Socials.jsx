@@ -3,9 +3,13 @@ import { Linkedin, Github, Instagram, MessageCircle } from 'lucide-react'
 import { profile } from '../../data/profile.js'
 import { item } from '../../animations/variants.js'
 import StaggerList from '../ui/StaggerList.jsx'
+import { BehanceIcon, PinterestIcon } from '../ui/BrandIcons.jsx'
 
 // Which icon each "icon" word in profile.js uses
-const ICONS = { linkedin: Linkedin, github: Github, instagram: Instagram, whatsapp: MessageCircle }
+const ICONS = {
+  linkedin: Linkedin, github: Github, instagram: Instagram, whatsapp: MessageCircle,
+  behance: BehanceIcon, pinterest: PinterestIcon,
+}
 
 // Colours for the icon circles, repeating if you add more apps
 const HUES = ['hue-yellow', 'hue-amber', 'hue-gold']

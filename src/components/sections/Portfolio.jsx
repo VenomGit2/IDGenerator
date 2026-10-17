@@ -1,30 +1,38 @@
 import { useState } from 'react'
-import { Image, Clapperboard, FolderOpen, ArrowUpRight } from 'lucide-react'
-import { portfolioImages, portfolioVideos, portfolioFolders } from '../../data/content.js'
+import { motion } from 'framer-motion'
+import { Image, Clapperboard, BookOpen, FolderOpen, ArrowUpRight } from 'lucide-react'
+import { portfolioImages, portfolioVideos, portfolioBrochures, portfolioFolders } from '../../data/content.js'
 import { buzz } from '../../utils/haptics.js'
+import { item } from '../../animations/variants.js'
 import StaggerList from '../ui/StaggerList.jsx'
 import WorkTile from '../ui/WorkTile.jsx'
 import Lightbox from '../ui/Lightbox.jsx'
+import PdfCover from '../ui/PdfCover.jsx'
+import BrochureReader from '../ui/BrochureReader.jsx'
 
 const ALL = 'All'
 
-// The two sections of the Portfolio tab. Each has its own list in src/data/content.js.
+// The sections of the Portfolio tab (Images, Videos, Brochures). Each has its own list in src/data/content.js.
 // A section with nothing in it is hidden automatically.
 const SECTIONS = [
   { id: 'images', label: 'Images', icon: Image, works: portfolioImages, folderUrl: portfolioFolders.images, folderText: 'See all images on Drive' },
   { id: 'videos', label: 'Videos', icon: Clapperboard, works: portfolioVideos, folderUrl: portfolioFolders.videos, folderText: 'See all videos on Drive' },
+  // brochures are PDFs: shown as cover cards, and opened in the full-screen reader (BrochureReader)
+  { id: 'brochures', label: 'Brochures', icon: BookOpen, works: portfolioBrochures, kind: 'brochures' },
 ].filter(section => section.works.length > 0)
 
-// Your design work. An "Images | Videos" switch, filter buttons for the open section,
-// a grid of tiles, and the full-screen viewer.
+// Your design work. An "Images | Videos | Brochures" switch, filter buttons for the open section,
+// a grid of tiles (or brochure covers), and the full-screen viewer / reader.
 export default function Portfolio() {
   const [sectionId, setSectionId] = useState(SECTIONS[0]?.id)
   const [activeCategory, setActiveCategory] = useState(ALL)
-  const [openIndex, setOpenIndex] = useState(null) // which tile is open in the viewer (null = closed)
+  const [openIndex, setOpenIndex] = useState(null)       // which tile is open in the viewer (null = closed)
+  const [openBrochure, setOpenBrochure] = useState(null) // which brochure is open in the reader (null = closed)
 
   if (SECTIONS.length === 0) return <p className="bio">Add your work in src/data/content.js.</p>
 
   const section = SECTIONS.find(s => s.id === sectionId) ?? SECTIONS[0]
+  const isBrochures = section.kind === 'brochures'
 
   // One filter button per category in the open section, plus "All".
   const categories = [ALL, ...new Set(section.works.map(work => work.category))]
@@ -32,7 +40,7 @@ export default function Portfolio() {
     ? section.works
     : section.works.filter(work => work.category === activeCategory)
 
-  const chooseSection = id => { setSectionId(id); setActiveCategory(ALL); setOpenIndex(null) }
+  const chooseSection = id => { setSectionId(id); setActiveCategory(ALL); setOpenIndex(null); setOpenBrochure(null) }
 
   const chooseCategory = (category, event) => {
     setActiveCategory(category)
@@ -41,12 +49,13 @@ export default function Portfolio() {
   }
 
   const openViewer = index => { buzz(8); setOpenIndex(index) }
+  const openReader = brochure => { buzz(8); setOpenBrochure(brochure) }
 
   return (
     <>
-      {/* Images | Videos switch (only shown when both sections have something in them) */}
+      {/* Images | Videos | Brochures switch (only shown when more than one section has something in it) */}
       {SECTIONS.length > 1 && (
-        <div className="segment" role="tablist" aria-label="Portfolio section">
+        <div className={`segment ${SECTIONS.length > 2 ? 'three' : ''}`} role="tablist" aria-label="Portfolio section">
           {SECTIONS.map(({ id, label, icon: Icon, works }) => (
             <button
               key={id} role="tab" aria-selected={id === section.id}
@@ -75,10 +84,24 @@ export default function Portfolio() {
       </div>
 
       {/* key replays the entrance animation each time you change section or filter */}
-      <StaggerList key={`${section.id}-${activeCategory}`} className="gallery">
-        {visibleWorks.map((work, index) => (
-          <WorkTile key={work.video ?? work.image} work={work} index={index} onOpen={openViewer} />
-        ))}
+      <StaggerList key={`${section.id}-${activeCategory}`} className={isBrochures ? 'brochures' : 'gallery'}>
+        {isBrochures
+          ? visibleWorks.map(brochure => (
+              <motion.button
+                key={brochure.pdf} className="brochure" variants={item}
+                onClick={() => openReader(brochure)} aria-label={`Open ${brochure.title}`}
+              >
+                <PdfCover brochure={brochure} />
+                <span className="brochure-badge">PDF</span>
+                <span className="tile-caption">
+                  <small>{brochure.category}</small>
+                  <b>{brochure.title}</b>
+                </span>
+              </motion.button>
+            ))
+          : visibleWorks.map((work, index) => (
+              <WorkTile key={work.video ?? work.image} work={work} index={index} onOpen={openViewer} />
+            ))}
       </StaggerList>
 
       {/* link to the full collection in Google Drive (only shown when a folder link is set in content.js) */}
@@ -88,8 +111,11 @@ export default function Portfolio() {
         </a>
       )}
 
+      {/* the brochure reader: full screen, shows the PDF */}
+      {openBrochure && <BrochureReader brochure={openBrochure} onClose={() => setOpenBrochure(null)} />}
+
       {/* no fade-out on purpose: it closes instantly, so the page can never get stuck behind an invisible layer */}
-      {openIndex !== null && (
+      {openIndex !== null && !isBrochures && (
         <Lightbox works={visibleWorks} startIndex={openIndex} onClose={() => setOpenIndex(null)} />
       )}
     </>

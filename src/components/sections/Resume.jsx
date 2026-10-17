@@ -23,7 +23,7 @@ export default function Resume() {
             <iframe src={embedUrl} title={resumeFile.title} loading="lazy" />
           </div>
         ) : (
-          <PdfViewer url={resumeFile.url} title={resumeFile.title} />
+          <PdfViewer url={resumeFile.url} title={resumeFile.title} kind="resume" />
         )}
       </motion.div>
 

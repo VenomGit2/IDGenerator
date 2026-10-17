@@ -1,0 +1,70 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Length 281 >>
+stream
+1 0.82 0.12 rg 0 0 595 842 re f
+0.07 0.07 0.07 rg 56 560 120 8 re f
+BT 0.07 0.07 0.07 rg /F2 64 Tf 56 640 Td (SAMPLE) Tj ET
+BT 0.07 0.07 0.07 rg /F2 30 Tf 56 596 Td (BROCHURE) Tj ET
+BT 0.07 0.07 0.07 rg /F1 14 Tf 56 520 Td (A placeholder file. Replace it with your own PDF.) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 5 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
+endobj
+7 0 obj
+<< /Length 265 >>
+stream
+0.08 0.08 0.08 rg 0 0 595 842 re f
+1 0.82 0.12 rg 56 560 120 8 re f
+BT 1 1 1 rg /F2 64 Tf 56 640 Td (Page 2) Tj ET
+BT 1 1 1 rg /F2 30 Tf 56 596 Td (Services & work) Tj ET
+BT 1 1 1 rg /F1 14 Tf 56 520 Td (Your brochure pages appear here, one below the other.) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 7 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
+endobj
+9 0 obj
+<< /Length 285 >>
+stream
+0.97 0.95 0.88 rg 0 0 595 842 re f
+0.07 0.07 0.07 rg 56 560 120 8 re f
+BT 0.07 0.07 0.07 rg /F2 64 Tf 56 640 Td (Page 3) Tj ET
+BT 0.07 0.07 0.07 rg /F2 30 Tf 56 596 Td (Get in touch) Tj ET
+BT 0.07 0.07 0.07 rg /F1 14 Tf 56 520 Td (Tap a page to read it full screen and zoom in.) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 9 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000128 00000 n 
+0000000198 00000 n 
+0000000273 00000 n 
+0000000604 00000 n 
+0000000740 00000 n 
+0000001055 00000 n 
+0000001191 00000 n 
+0000001526 00000 n 
+trailer
+<< /Size 11 /Root 1 0 R >>
+startxref
+1663
+%%EOF

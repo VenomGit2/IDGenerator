@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import { FileWarning } from 'lucide-react'
 import Lightbox from './Lightbox.jsx'
+import { loadPdfJs } from '../../utils/pdf.js'
 
 // Shows a PDF directly inside the page, so nobody is sent to another tab.
 //
 // Why not just an <iframe>? Many phones (Android Chrome especially) cannot show a PDF inside a page.
 // So each PDF page is drawn as a picture with the pdf.js library, which works on every phone.
-//   - the library is only downloaded when this component is first used (the Resume tab)
+//   - the library is only downloaded when this component is first used (the Resume tab or a brochure)
 //   - pages appear one by one as soon as they are ready
 //   - tap a page to open it full screen, where you can double-tap to zoom in and read the small text
-export default function PdfViewer({ url, title }) {
+// kind = the word used in the messages: 'resume' shows "Loading resume…", 'brochure' shows "Loading brochure…".
+export default function PdfViewer({ url, title, kind = 'resume' }) {
   const boxRef = useRef(null)
   const [pages, setPages] = useState([])            // finished pages: { image, ratio }
   const [status, setStatus] = useState('loading')   // 'loading' | 'ready' | 'error'
@@ -20,10 +22,7 @@ export default function PdfViewer({ url, title }) {
 
     async function drawPages() {
       try {
-        // "legacy" build = also works on older phones
-        const pdfjs = await import('pdfjs-dist/legacy/build/pdf.mjs')
-        const worker = (await import('pdfjs-dist/legacy/build/pdf.worker.min.mjs?url')).default
-        pdfjs.GlobalWorkerOptions.workerSrc = worker
+        const pdfjs = await loadPdfJs()
 
         const pdf = await pdfjs.getDocument({ url }).promise
 
@@ -62,7 +61,7 @@ export default function PdfViewer({ url, title }) {
       <div className="card-item pdf-error">
         <FileWarning size={22} />
         <div>
-          <b>The resume could not be shown here.</b>
+          <b>The {kind} could not be shown here.</b>
           <p>Check that the file exists and the link in content.js is correct. You can still download it below.</p>
         </div>
       </div>
@@ -82,7 +81,7 @@ export default function PdfViewer({ url, title }) {
         </button>
       ))}
 
-      {status === 'loading' && <div className="pdf-loading">Loading resume…</div>}
+      {status === 'loading' && <div className="pdf-loading">Loading {kind}…</div>}
       {status === 'ready' && <p className="pdf-hint">Tap a page to read it full screen and zoom in</p>}
 
       {openIndex !== null && (

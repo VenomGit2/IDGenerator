@@ -54,7 +54,7 @@ export default function Hero({ theme, onToggleTheme, onOpenQr }) {
         <div className="verified"><i /> Verified identity</div>
         <h1>{profile.name}</h1>
         <p className="role">{profile.title}</p>
-        <p className="org">{profile.company} <span>· {profile.previous}</span></p>
+        <p className="org">{profile.company} <span> {profile.previous}</span></p>
 
         <div className="stats">
           {profile.stats.map(s => <div key={s.label}><CountUp to={s.value} /><small>{s.label}</small></div>)}

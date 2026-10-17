@@ -59,7 +59,7 @@ export default function App() {
           />
           <FeaturedWork onViewAll={() => tabs.goTo('Portfolio')} />
           <OpenForWork />
-          <footer>© 2026 IdentiQ · Official Personal Profile</footer>
+          <footer>made with ❤️ by <a href='https://www.linkedin.com/in/dnyaneshwar21'>Danny</a></footer>
         </motion.section>
       </motion.div>
 
