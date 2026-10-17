@@ -99,10 +99,11 @@ export const portfolio = [...portfolioImages, ...portfolioVideos]
 
 
 export const services = [
-  'Design system architecture',
-  'Product strategy & UX audits',
-  'Spatial and AR/VR interface design',
-  'Team coaching & design ops',
+  'Brand Identity & Logo Design',,
+  'Social Media Design',
+  'Motion Graphics & Animation',
+  'Product & Brand Videos',
+  'Video Editing',
 ]
 
 // ---------------------------------------------------------------
