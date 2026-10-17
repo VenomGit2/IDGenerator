@@ -6,7 +6,8 @@
 .actions { padding: 0 18px; }
 
 /* ---- cover ---- */
-.cover { position: relative; height: 124px; overflow: hidden; }
+.hero { --cover-h: 236px; --avatar-top: 70px; }   /* cover height, and how far down the avatar starts. The cover ends just below the "Verified identity" badge. */
+.cover { position: relative; height: var(--cover-h); overflow: hidden; }
 .cover-bg {
   position: absolute; inset: -40px 0 0; transform-origin: 50% 100%;
   background:
@@ -30,7 +31,7 @@
 .idno {
   position: absolute; left: 14px; top: 14px; display: inline-flex; align-items: center; gap: 6px;
   height: 36px; padding: 0 12px; border-radius: 99px;
-  font: 600 11px/1 'Space Grotesk', sans-serif; letter-spacing: .12em; color: rgba(255, 255, 255, .92);
+  font: 600 11px/1 'Montserrat', sans-serif; letter-spacing: .12em; color: rgba(255, 255, 255, .92);
 }
 .cover-actions { position: absolute; top: 14px; right: 14px; display: flex; gap: 8px; }
 .icon-btn {
@@ -41,8 +42,8 @@
 .icon-btn:active { transform: scale(.9); background: rgba(255, 255, 255, .22); }
 
 /* ---- avatar ---- */
-.hero-body { padding: 0 18px 20px; text-align: center; }
-.avatar-wrap { position: relative; isolation: isolate; width: 116px; margin: -58px auto 12px; }  /* negative margin = overlaps the cover */
+.hero-body { padding: 0 18px 20px; text-align: center; margin-top: calc(-1 * (var(--cover-h) - var(--avatar-top))); }  /* pulls the avatar and the badge up onto the cover */
+.avatar-wrap { position: relative; isolation: isolate; width: 116px; margin: 0 auto 12px; }
 
 /* soft yellow glow behind the photo */
 .avatar-wrap::before {
@@ -86,7 +87,7 @@
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 210, 31, .55); } 70%, 100% { box-shadow: 0 0 0 7px rgba(255, 210, 31, 0); } }
 
 /* ---- name + title ---- */
-h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px, 8vw, 32px); letter-spacing: -.03em; margin-top: 12px; color: var(--text); }
+h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(26px, 8vw, 32px); letter-spacing: -.03em; margin-top: 12px; color: var(--text); }
 .role { color: var(--muted); font-size: 14px; margin-top: 4px; line-height: 1.45; padding: 0 6px; }
 .org { margin-top: 8px; font-weight: 600; font-size: 14px; }
 .org span { color: var(--muted); font-weight: 400; }
@@ -95,7 +96,7 @@ h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px, 8vw, 32px)
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 20px; border-radius: 16px; overflow: hidden; }
 .stats div { padding: 14px 6px; }
 .stats div + div { border-left: 1px solid var(--chip-border); }
-.stats b { display: block; font-family: 'Space Grotesk'; font-size: 20px; }
+.stats b { display: block; font-family: 'Montserrat', sans-serif; font-size: 20px; }
 .stats small { color: var(--muted); font-size: 11px; }
 
 /* each number gets its own gradient text colour */
@@ -106,3 +107,18 @@ h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px, 8vw, 32px)
 [data-theme='light'] .stats div:nth-child(1) b { background-image: linear-gradient(180deg, #c78a00, #8a5d00); }
 [data-theme='light'] .stats div:nth-child(2) b { background-image: linear-gradient(180deg, #b45309, #7c3a06); }
 [data-theme='light'] .stats div:nth-child(3) b { background-image: linear-gradient(180deg, #3f3f46, #121212); }
+
+/* ---- cover photo (when profile.cover is set) ---- */
+.cover-bg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* a soft dark fade over the photo keeps the ID chip and the buttons readable on any picture */
+.cover-bg.has-image::before {
+  opacity: 1; background-image: linear-gradient(180deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .08) 55%, rgba(0, 0, 0, .35));
+  background-size: auto; -webkit-mask-image: none; mask-image: none;
+}
+
+/* The "Verified identity" badge now sits on the cover, so it is a dark glass pill that stays readable on any photo. */
+.verified, [data-theme='light'] .verified {
+  color: #ffe066; background: rgba(0, 0, 0, .5); border: 1px solid rgba(255, 210, 31, .55);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); box-shadow: none;
+}
+.verified i, [data-theme='light'] .verified i { background: #ffd21f; }

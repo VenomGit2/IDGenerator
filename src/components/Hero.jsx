@@ -13,6 +13,8 @@ const photoAsWork = [{ image: profile.photo, title: profile.name, category: prof
 // The top of the card: cover image, avatar, name, title and the three stat numbers.
 export default function Hero({ theme, onToggleTheme, onOpenQr }) {
   const [photoOpen, setPhotoOpen] = useState(false)
+  const [coverFailed, setCoverFailed] = useState(false) // if the cover picture cannot load, the default design shows
+  const coverUrl = !coverFailed && profile.cover ? imageSrc(profile.cover, 1400) : null
 
   // Parallax: the cover moves slower than the page, and stretches when you pull down at the top.
   const { scrollY } = useScroll()
@@ -22,7 +24,9 @@ export default function Hero({ theme, onToggleTheme, onOpenQr }) {
   return (
     <header className="hero">
       <div className="cover">
-        <motion.div className="cover-bg" style={{ y: coverY, scale: coverScale }} />
+        <motion.div className={`cover-bg ${coverUrl ? 'has-image' : ''}`} style={{ y: coverY, scale: coverScale }}>
+          {coverUrl && <img src={coverUrl} alt="" referrerPolicy="no-referrer" draggable={false} onError={() => setCoverFailed(true)} />}
+        </motion.div>
         <span className="idno"><ShieldCheck size={13} /> {profile.idNumber}</span>
         <div className="cover-actions">
           <button className="icon-btn" onClick={onToggleTheme} aria-label="Toggle theme">

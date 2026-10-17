@@ -23,7 +23,7 @@
   border-radius: 34px 34px 0 0; border-bottom: 0;
 }
 .grab { justify-self: center; width: 40px; height: 5px; border-radius: 99px; margin-bottom: 4px; background: rgba(255, 255, 255, .35); }
-.sheet h3 { font-family: 'Space Grotesk'; font-size: 18px; color: var(--text); }
+.sheet h3 { font-family: 'Montserrat', sans-serif; font-size: 18px; color: var(--text); }
 .sheet p { font-size: 12px; color: var(--muted); line-height: 1.5; }
 .sheet .btn.ghost { margin: 0; }
 .close { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; color: var(--text); transition: transform .18s var(--ease); }

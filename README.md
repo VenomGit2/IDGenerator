@@ -154,3 +154,12 @@ The Resume tab shows your resume right inside the tab, with no redirect, plus a 
 - The download file name is set in `resumeFile` too (`downloadName`), in `src/data/content.js`.
 - The PDF reader library is only downloaded when someone opens the Resume tab, so it does not slow down the first load.
 - The file `public/resume.pdf` is a SAMPLE. Replace it before you share the card.
+
+## Cover photo and profile photo
+
+Both are set in `src/data/profile.js`:
+
+- `photo`: your round profile photo.
+- `cover`: the wide picture behind it (about 1200 x 500 px; a dark or moody picture works best).
+
+Each accepts a Google Drive share link ("Anyone with the link") or a file in the `public/` folder such as `'/cover.jpg'`. A soft dark fade is added over the cover so the ID number and buttons stay readable. If `cover` is empty, or the picture cannot load, the default yellow-and-dark design is shown.

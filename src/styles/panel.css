@@ -5,12 +5,12 @@
 
 .panel { padding: 18px 16px 14px; min-height: 300px; }
 .panel-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-bottom: 12px; margin-bottom: 14px; border-bottom: 1px solid var(--glass-border); }
-.panel h2 { font-family: 'Space Grotesk'; font-size: 21px; letter-spacing: -.02em; color: var(--text); }
+.panel h2 { font-family: 'Montserrat', sans-serif; font-size: 21px; letter-spacing: -.02em; color: var(--text); }
 .swipe-area { touch-action: pan-y; }
 .swipe-hint { margin-top: 14px; text-align: center; font-size: 11px; color: var(--muted); }
 
 /* ---- pager (the < 3/11 > control) ---- */
-.pager { display: flex; align-items: center; gap: 2px; font: 700 13px 'Space Grotesk'; }
+.pager { display: flex; align-items: center; gap: 2px; font: 700 13px 'Montserrat', sans-serif; }
 .pager button { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; color: var(--text); transition: transform .18s var(--ease), opacity .2s; }
 .pager button:active:not(:disabled) { transform: scale(.88); border-color: var(--accent); }
 .pager button:disabled { opacity: .55; }

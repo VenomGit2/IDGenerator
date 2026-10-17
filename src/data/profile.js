@@ -10,8 +10,8 @@ export const profile = {
   bio: 'Creative Designer Specializing in Branding, Printing and Social Media With a background in 3 years of design, I bring a blend of creativity and strategic thinking to every project. My expertise in branding, logo creation, print design, and social media allows me to craft cohesive visual narratives that resonate with audiences and fulfill business goals.',
   // Your photo: a Google Drive share link (Anyone with the link can view), or a file like '/me.jpg' in the public/ folder.
   photo: 'https://i.pravatar.cc/400?img=12',
-  phone: '+91 8482863150',
-  email: 'creativeflow3563@gmail.com',
+  phone: '+1 415 555 0142',
+  email: 'alex@apexdesign.io',
   website: 'apexdesign.io',
   locations: ['Hyderabad, India'],
   url: 'https://identiq.in/u/demo', // used for the QR code and sharing
